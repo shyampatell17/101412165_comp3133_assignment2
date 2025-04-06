@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error-snackbar {
+  background: #f44336;
+  color: white;
+}
+
+.success-snackbar {
+  background: #4caf50;
+  color: white;
+}
+
+.mat-mdc-snack-bar-action {
+  color: white !important;
+}
+
+/* Form field styles */
+.mat-mdc-form-field {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Button styles */
+.mat-mdc-raised-button {
+  min-width: 120px;
+}
+
+/* Card styles */
+.mat-mdc-card {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+/* Table styles */
+.mat-mdc-table {
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .mat-mdc-form-field {
+    max-width: 100%;
+  }
+  
+  .mat-mdc-raised-button {
+    width: 100%;
+  }
+}

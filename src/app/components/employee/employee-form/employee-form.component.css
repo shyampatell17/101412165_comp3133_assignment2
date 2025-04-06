@@ -1,0 +1,37 @@
+.employee-form-container {
+  padding: 2rem;
+}
+
+mat-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+mat-card-header {
+  margin-bottom: 2rem;
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button[type="submit"] {
+  min-width: 120px;
+} 
