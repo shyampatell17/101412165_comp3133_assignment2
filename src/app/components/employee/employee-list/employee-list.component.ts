@@ -18,6 +18,7 @@ import { Employee } from '../../../models/employee.model';
 import { AuthService } from '../../../services/auth.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -124,25 +125,32 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['/employees/edit', id]);
   }
 
-  deleteEmployee(id: string): void {
-    if (confirm('Are you sure you want to delete this employee?')) {
-      this.isLoading = true;
-      this.employeeService.deleteEmployee(id).subscribe({
-        next: () => {
-          this.loadEmployees();
-          this.snackBar.open('Employee deleted successfully', 'Close', {
-            duration: 3000
-          });
-        },
-        error: (error) => {
-          console.error('Error deleting employee:', error);
-          this.isLoading = false;
-          this.snackBar.open('Failed to delete employee. Please try again.', 'Close', {
-            duration: 3000
-          });
-        }
-      });
-    }
+  deleteEmployee(employee: Employee): void {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      width: '400px',
+      data: { employeeName: `${employee.first_name} ${employee.last_name}` }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.isLoading = true;
+        this.employeeService.deleteEmployee(employee.id).subscribe({
+          next: () => {
+            this.loadEmployees();
+            this.snackBar.open('Employee deleted successfully', 'Close', {
+              duration: 3000
+            });
+          },
+          error: (error) => {
+            console.error('Error deleting employee:', error);
+            this.isLoading = false;
+            this.snackBar.open('Failed to delete employee. Please try again.', 'Close', {
+              duration: 3000
+            });
+          }
+        });
+      }
+    });
   }
 
   logout(): void {

@@ -64,7 +64,7 @@ td.mat-cell {
 .action-buttons {
   display: flex;
   gap: 0.5rem;
-  opacity: 0.7;
+  opacity: 0.9;
   transition: opacity 0.2s;
 }
 
@@ -73,9 +73,21 @@ tr.mat-row:hover .action-buttons {
 }
 
 .action-buttons button {
-  width: 36px;
+  min-width: 90px;
+  padding: 0 8px;
   height: 36px;
-  line-height: 36px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.action-buttons button mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .loading-overlay {
@@ -105,6 +117,17 @@ tr.mat-row:hover .action-buttons {
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .employee-list-container {
     padding: 1rem;

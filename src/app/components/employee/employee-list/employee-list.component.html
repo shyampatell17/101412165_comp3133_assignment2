@@ -62,14 +62,17 @@
             <th mat-header-cell *matHeaderCellDef>Actions</th>
             <td mat-cell *matCellDef="let employee">
               <div class="action-buttons">
-                <button mat-icon-button color="primary" matTooltip="View Details" (click)="viewEmployee(employee.id)">
+                <button mat-stroked-button color="primary" (click)="viewEmployee(employee.id)">
                   <mat-icon>visibility</mat-icon>
+                  View
                 </button>
-                <button mat-icon-button color="accent" matTooltip="Edit" (click)="editEmployee(employee.id)">
+                <button mat-stroked-button color="accent" (click)="editEmployee(employee.id)">
                   <mat-icon>edit</mat-icon>
+                  Edit
                 </button>
-                <button mat-icon-button color="warn" matTooltip="Delete" (click)="deleteEmployee(employee.id)">
+                <button mat-stroked-button color="warn" (click)="deleteEmployee(employee)" matTooltip="Delete employee">
                   <mat-icon>delete</mat-icon>
+                  Delete
                 </button>
               </div>
             </td>
