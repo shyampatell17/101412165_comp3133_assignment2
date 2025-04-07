@@ -8,7 +8,8 @@ import { HttpLink } from 'apollo-angular/http';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
 
-const uri = 'http://localhost:4000/graphql';
+// Update this URL to your deployed backend URL
+const uri = 'https://comp3133-101412165-assignment1.vercel.app/graphql';
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
