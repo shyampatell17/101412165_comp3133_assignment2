@@ -2,18 +2,25 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/101412165_comp3133_assignment2/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "ng build --configuration production",
+        "outputDirectory": "dist/101412165_comp3133_assignment2"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/(assets/.+)",
-      "dest": "/dist/101412165_comp3133_assignment2/$1"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/dist/101412165_comp3133_assignment2/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
     }
   ]
 } 

@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "vercel-build": "ng build --configuration production",
     "serve:ssr:101412165_comp3133_assignment2": "node dist/101412165_comp3133_assignment2/server/server.mjs"
   },
   "private": true,
