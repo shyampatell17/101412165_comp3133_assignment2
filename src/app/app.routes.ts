@@ -7,6 +7,7 @@ import { EmployeeDetailsComponent } from './components/employee/employee-details
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {
@@ -22,13 +23,14 @@ export const routes: Routes = [
   {
     path: 'employees/edit/:id',
     component: EmployeeFormComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
+    data: { renderMode: 'browser' }
   },
   {
     path: 'employees/details/:id',
     component: EmployeeDetailsComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
+    data: { renderMode: 'browser' }
   },
-  { path: '', redirectTo: '/employees', pathMatch: 'full' },
   { path: '**', redirectTo: '/employees' }
 ];

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/101412165_comp3133_assignment2/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(assets/.+)",
+      "dest": "/dist/101412165_comp3133_assignment2/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/101412165_comp3133_assignment2/index.html"
+    }
+  ]
+} 
